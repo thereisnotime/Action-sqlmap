@@ -26,7 +26,7 @@ runs:
         args="$args $arg"
       done
       echo $args
-      exec /usr/bin/python3 /sqlmap/sqlmap.py $args
+      exec /usr/local/bin/python3 /sqlmap/sqlmap.py $args
 
 branding:
   icon: "map"

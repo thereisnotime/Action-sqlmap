@@ -1,16 +1,24 @@
 # action.yml
-name: "Hello World"
-description: "Greet someone and record the time"
+name: "thereisnotime/sqlmap"
+description: "Run sqlmap in your GitHub Actions workflow"
+
 inputs:
-  who-to-greet: # id of input
-    description: "Who to greet"
+  url:
+    description: "Target URL (e.g. http://www.site.com/vuln.php?id=1)"
     required: true
-    default: "World"
-outputs:
-  time: # id of output
-    description: "The time we greeted you"
+    default: ""
+  additional_args:
+    description: "Additional arguments to pass to sqlmap. Default is --batch to run in non-interactive mode."
+    required: false
+    default: "--batch"
+
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.who-to-greet }}
+    - --url=${{ inputs.url }}
+    - ${{ inputs.additional_args }}
+
+branding:
+  icon: "map"
+  color: "red"

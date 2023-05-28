@@ -1,5 +1,5 @@
 # action.yml
-name: "thereisnotime/sqlmap"
+name: "thereisnotime/action-sqlmap"
 description: "Run sqlmap in your GitHub Actions workflow"
 
 inputs:

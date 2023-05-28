@@ -15,7 +15,7 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  entrypoint: python3
+  entrypoint: /bin/sh
   args:
     - -c
     - |
@@ -25,7 +25,7 @@ runs:
         args+=("$arg")
       done
       echo "${args[@]}"
-      exec /sqlmap/sqlmap.py "${args[@]}"
+      exec /usr/bin/python3 /sqlmap/sqlmap.py "${args[@]}"
 
 branding:
   icon: "map"

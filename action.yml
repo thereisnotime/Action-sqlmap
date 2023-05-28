@@ -17,7 +17,7 @@ runs:
   image: "Dockerfile"
   args:
     - --url=${{ inputs.url }}
-    - ${{ inputs.additional_args }}
+    - ${{ split(inputs.additional_args, ' ') }}
 
 branding:
   icon: "map"

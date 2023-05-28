@@ -100,6 +100,7 @@ JSON scan results, base64 encoded.
 
 If there is enough time or interest, I will add the following features (feel free to open PRs):
 
+- [ ] Finish support for outputs (e.g. `result` and `resultb64`).
 - [ ] Add support for notification via Slack.
 - [ ] Add support for notification via Telegram.
 - [ ] Add support for notification via email.

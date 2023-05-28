@@ -15,9 +15,17 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
+  entrypoint: python3
   args:
-    - --url=${{ inputs.url }}
-    - ${{ inputs.additional_args }}
+    - -c
+    - |
+      args=("--url=${{ inputs.url }}")
+      IFS=" " read -ra additional_args <<< "${{ inputs.additional_args }}"
+      for arg in "${additional_args[@]}"; do
+        args+=("$arg")
+      done
+      echo "${args[@]}"
+      exec /sqlmap/sqlmap.py "${args[@]}"
 
 branding:
   icon: "map"

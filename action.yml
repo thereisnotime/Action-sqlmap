@@ -4,7 +4,7 @@ description: "Run sqlmap in your GitHub Actions workflow"
 
 inputs:
   url:
-    description: "Target URL (e.g. http://www.site.com/vuln.php?id=1)"
+    description: "Target URL (e.g. http://blackfox-security.com/vuln.php?id=1)"
     required: true
     default: ""
   additional_args:

@@ -19,13 +19,14 @@ runs:
   args:
     - -c
     - |
-      args=("--url=${{ inputs.url }}")
-      IFS=" " read -ra additional_args <<< "${{ inputs.additional_args }}"
-      for arg in "${additional_args[@]}"; do
-        args+=("$arg")
+      args="--url=${{ inputs.url }}"
+      additional_args="${{ inputs.additional_args }}"
+      set -- $additional_args
+      for arg do
+        args="$args $arg"
       done
-      echo "${args[@]}"
-      exec /usr/bin/python3 /sqlmap/sqlmap.py "${args[@]}"
+      echo $args
+      exec /usr/bin/python3 /sqlmap/sqlmap.py $args
 
 branding:
   icon: "map"
